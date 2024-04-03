@@ -1,8 +1,9 @@
 package com.dto;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class ReservedRoom {
+public class ReservedRoom implements Serializable {
     //예약된 방 정보를 담고 있는 객체
     private Room room;
     private LocalDateTime datetime;
