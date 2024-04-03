@@ -7,13 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SaveRoomInfotoFile {
-    public void saveRoom(List<Room> rooms) {
-        File target = new File("src/main/java/com/repository/RoomData");
-        try (ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(target)))) {
-            oos.writeObject(rooms);
-            System.out.println("객실 정보가 성공적으로 저장되었습니다.");
-        } catch (IOException e) {
-            e.printStackTrace();
+    private File target = new File("src/main/java/com/repository/RoomData");
+
+    public void saveRoom(Room room) throws IOException {
+        boolean append = target.exists() && target.length() > 0;
+        try (ObjectOutputStream oos = append ? new ObjectOutputStream(new FileOutputStream(target, true)) {
+            protected void writeStreamHeader() throws IOException {
+                // 파일에 이미 데이터가 있을 경우 헤더를 다시 쓰지 않습니다.
+                reset();
+            }
+        }
+                : new ObjectOutputStream(new FileOutputStream(target))) {
+            oos.writeObject(room);
         }
     }
 }
