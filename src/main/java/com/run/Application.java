@@ -1,5 +1,7 @@
 package com.run;
 
+import com.controller.DataManager;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -8,6 +10,7 @@ public class Application {
 
     public static void main(String[] args) {
         Application app = new Application();
+        DataManager manager = new DataManager();
         sc = new Scanner(System.in);
         int choose=0;
 
