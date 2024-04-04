@@ -8,24 +8,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoadReservedRoomfromFile {
-    public Map<Room, ReservedRoom> getRRoomMap(){
-        Map<Room, ReservedRoom> rRoomMap = new HashMap<>();
-
+    public Map<Integer, ReservedRoom> getRRoomMap(){
+        Map<Integer, ReservedRoom> rRoomMap = null;
         File target = new File("src/main/java/com/repository/ReservedRoomData");
-        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(target))){
-            while(true) {
+        try(ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(target)))){
                 Object obj = ois.readObject();
-                ReservedRoom rRoom = (ReservedRoom) obj;
-                System.out.println(obj);
-                rRoomMap.put(rRoom.getRoom(), rRoom);
+                rRoomMap = (Map<Integer, ReservedRoom>) obj;
             }
-        } catch (EOFException e){
-            return rRoomMap;
-        } catch(IOException | ClassNotFoundException e){
-            //multicatch절 : 부모/ 자식관계가 아닌 타입을 n개 나열
-            e.printStackTrace();
+        catch (IOException e) {
+            System.out.println("예약된 방 정보를 불러들이지 못했습니다");
+            return null;
+        } catch (ClassNotFoundException e) {
+            System.out.println("저장된 정보가 없습니다");
         }
-        return null;
+        return rRoomMap;
     }
 
 }

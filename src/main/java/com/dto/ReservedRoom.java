@@ -5,17 +5,17 @@ import java.time.LocalDateTime;
 
 public class ReservedRoom implements Serializable {
     //예약된 방 정보를 담고 있는 객체
-    private Room room;
+    private int roomId;
     private LocalDateTime datetime;
     private String userId;
     private int reservationCode;
 
-    public Room getRoom() {
-        return room;
+    public int getRoomId() {
+        return roomId;
     }
 
-    public void setRoom(Room room) {
-        this.room = room;
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
     }
 
     public LocalDateTime getDatetime() {
@@ -42,14 +42,19 @@ public class ReservedRoom implements Serializable {
         this.reservationCode = reservationCode;
     }
 
-    public ReservedRoom(Room room, LocalDateTime datetime, String userId, int reservationCode) {
-        this.room = room;
+    public ReservedRoom(int roomId, LocalDateTime datetime, String userId, int reservationCode) {
+        this.roomId = roomId;
         this.datetime = datetime;
         this.userId = userId;
         this.reservationCode = reservationCode;
     }
 
     public ReservedRoom() {
+    }
+
+    @Override
+    public String toString(){
+        return String.format("%s ,%s, %d", this.datetime, this.userId, this.reservationCode );
     }
 //key = 객실객체
     //value = 예약정보(날짜, UserID, 예약코드)
