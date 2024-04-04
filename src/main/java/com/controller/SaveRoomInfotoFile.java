@@ -3,8 +3,7 @@ package com.controller;
 import com.dto.Room;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class SaveRoomInfotoFile {
     private File target = new File("src/main/java/com/repository/RoomData");
