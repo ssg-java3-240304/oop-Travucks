@@ -9,6 +9,15 @@ public class ReservedRoom implements Serializable {
     private LocalDateTime datetime;
     private String userId;
     private int reservationCode;
+    private int moreDays;
+
+    public int getMoreDays() {
+        return moreDays;
+    }
+
+    public void setMoreDays(int moreDays) {
+        this.moreDays = moreDays;
+    }
 
     public int getRoomId() {
         return roomId;
@@ -42,11 +51,12 @@ public class ReservedRoom implements Serializable {
         this.reservationCode = reservationCode;
     }
 
-    public ReservedRoom(int roomId, LocalDateTime datetime, String userId, int reservationCode) {
+    public ReservedRoom(int roomId, LocalDateTime datetime, String userId, int reservationCode, int moreDays) {
         this.roomId = roomId;
         this.datetime = datetime;
         this.userId = userId;
         this.reservationCode = reservationCode;
+        this.moreDays = moreDays;
     }
 
     public ReservedRoom() {
@@ -54,7 +64,7 @@ public class ReservedRoom implements Serializable {
 
     @Override
     public String toString(){
-        return String.format("%s ,%s, %d", this.datetime, this.userId, this.reservationCode );
+        return String.format("객실번호 %s, 예약일: %s , 예약자: %s, 예약코드: %d, 숙박일수: %d", this.roomId, this.datetime, this.userId, this.reservationCode, this.moreDays );
     }
 //key = 객실객체
     //value = 예약정보(날짜, UserID, 예약코드)
