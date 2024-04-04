@@ -4,6 +4,7 @@ public class Member {
     //userId:int
     private String userId;
     //name:String
+    private String userCode;
     private String name;
     //address:String
     private String address;
@@ -13,11 +14,20 @@ public class Member {
     public Member() {
     }
 
-    public Member(String userId, String name, String address, String phone) {
+    public Member(String userId,String userCode, String name, String address, String phone) {
         this.userId = userId;
+        this.userCode=userCode;
         this.name = name;
         this.address = address;
         this.phone = phone;
+    }
+
+    public String getUserCode() {
+        return userCode;
+    }
+
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 
     public String getUserId() {
