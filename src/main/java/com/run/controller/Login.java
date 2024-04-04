@@ -23,7 +23,7 @@ public class Login {
             System.out.println("아이디를 입력하세요 : ");
             String id = sc.nextLine();
             LoadMemberInfofromFile lmif = new LoadMemberInfofromFile();
-            List<Member> members = lmif.loadTextFile("/Users/yoondohwan/java_workspace/project/oop-Travucks/src/main/java/com/repository/memberData");
+            List<Member> members = lmif.loadTextFile("src/main/java/com/repository/memberData");
              loggedInMember = findMember(id, members);
             if (loggedInMember != null) {
                 System.out.println("로그인 되었습니다. 회원 정보: " + loggedInMember);
