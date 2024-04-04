@@ -17,10 +17,10 @@ public class LoadManager {
         return members;
 
     }
-    public List<ReservationCode> resCode(String Filepath){
+    public Map<String, ReservationCode> resCode(String Filepath){
 
         LoadReservationCodefromFile codes = new LoadReservationCodefromFile();
-        List<ReservationCode> code = codes.loadFromFile(Filepath);
+        Map<String, ReservationCode> code = codes.loadFromFile(Filepath);
         return code;
     }
     public Map<Integer,ReservedRoom> resRoomInfo(){

@@ -5,10 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 // Reservationcode의 객체를  ReservationCodeData 파일에 객체저장
 public class SaveReservationCodetoFile {
@@ -37,13 +34,8 @@ public class SaveReservationCodetoFile {
 //            return false; // 파일 저장 실패
 //        }
 //    }
-public static boolean saveToFile(List<ReservationCode> reservationCodes, String fileName) {
+public static boolean saveToFile(Map<String, ReservationCode> reservationCodeMap, String fileName) {
     try (FileOutputStream fos = new FileOutputStream(fileName)) {
-        Map<String, ReservationCode> reservationCodeMap = new HashMap<>();
-        for (ReservationCode reservationCode : reservationCodes) {
-            reservationCodeMap.put(reservationCode.getUserId(), reservationCode);
-        }
-
         // 맵의 각 값들을 파일에 저장
         for (Map.Entry<String, ReservationCode> entry : reservationCodeMap.entrySet()) {
             ReservationCode reservationCode = entry.getValue();
