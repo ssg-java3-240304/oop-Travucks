@@ -19,18 +19,19 @@ public class LoadMemberInfofromFile {
     }*/
 
 
-    private static List<Member> loadTextFile(String filePath) {
+    public static List<Member> loadTextFile(String filePath) {
         List<Member>members=new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                if(parts.length==4){
+                if(parts.length==5){
                 String userId = parts[0];
-                String name = parts[1];
-                String address = parts[2];
-                String phone = parts[3];
-                members.add(new Member(userId,name,address,phone));}
+                String userCode =parts[1];
+                String name = parts[2];
+                String address = parts[3];
+                String phone = parts[4];
+                members.add(new Member(userId,userCode,name,address,phone));}
                 else{
                     System.err.println("Invalid Line : "+line);
                 }
