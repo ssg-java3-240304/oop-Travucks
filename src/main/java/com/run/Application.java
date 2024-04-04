@@ -1,12 +1,16 @@
 package com.run;
 
 import com.controller.DataManager;
+import com.controller.SaveRoomInfotoFile;
 import com.dto.Member;
+import com.dto.Room;
 import com.run.controller.Login;
 import com.run.controller.RoomSearch;
 import com.run.controller.ShowReservation;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Application {
@@ -23,8 +27,6 @@ public class Application {
         Login login=new Login(manager);
         Member logedMember = login.checkmember();    //로그인 멤버
         System.out.println(logedMember.getName()+"님 환영합니다");
-
-
 
         //메뉴 호출
         do{
