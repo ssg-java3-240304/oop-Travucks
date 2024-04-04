@@ -9,6 +9,7 @@ import java.util.*;
 
 // Reservationcode의 객체를  ReservationCodeData 파일에 객체저장
 public class SaveReservationCodetoFile {
+
 //    public static void main(String[] args) {
 //        String fileName = "src\\main\\java\\com\\repository\\ReservationCodeData";
 //        List<ReservationCode> reservationCodes = new ArrayList<>();
@@ -35,6 +36,7 @@ public class SaveReservationCodetoFile {
 //        }
 //    }
 public static boolean saveToFile(Map<String, ReservationCode> reservationCodeMap, String fileName) {
+
     try (FileOutputStream fos = new FileOutputStream(fileName)) {
         // 맵의 각 값들을 파일에 저장
         for (Map.Entry<String, ReservationCode> entry : reservationCodeMap.entrySet()) {
