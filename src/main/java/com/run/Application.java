@@ -33,9 +33,7 @@ public class Application {
                     case 2 :    //객실예약
                         break;
                     case 3 :    //예약한 객실 조회
-                        System.out.println("예약 코드를 입력해주세요.");
-                        int rcode = sc.nextInt();
-                        showReservation.printResRoomByCode(rcode);
+                        showReservation.printResRoomByCode();
                         break;
                     case 4 :    //예약 취소
                         break;
