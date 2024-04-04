@@ -2,6 +2,7 @@ package com.run.controller;
 
 import com.controller.DataManager;
 
+import com.dto.ReservationCode;
 import com.dto.ReservedRoom;
 
 import java.util.ArrayList;
@@ -17,19 +18,20 @@ public class ShowReservation {
 
     public void printResRoomByCode(int reservationCode) {
 
-        Map<Integer, ReservedRoom> reservedRooms = dataManager.getRsvRooms();
+        Map<String, ReservationCode> reservedRooms = dataManager.getRsvCodes();
         System.out.println("예약된 정보를 확인합니다.");
         System.out.println();
 
         boolean found = false;
 
-        for (ReservedRoom room : reservedRooms.values()) {
-            if (room.getReservationCode() == reservationCode) {
+        for (ReservationCode room : reservedRooms.values()) {
+            if (room.hashCode() == reservationCode) {
 
-                System.out.println("일치하는 방 정보: 객실 번호 = " + room.getRoomId() +
-                        ", 날짜 = " + room.getDatetime() +
+                System.out.println(
+                        "일치하는 방 정보: 객실 번호 = " + room.getRoomId() +
+                        ", 날짜 = " + room.getReservationDate() +
                         ", 아이디 = " + room.getUserId() +
-                        ", 예약 코드 = " + room.getReservationCode());
+                        ", 예약 코드 = " + room.hashCode());
                 found = true;
             }
         }
