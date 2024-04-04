@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 public class LoadManager {
-
     public List<Member> memberInfo(String Filepath){
 
         LoadMemberInfofromFile member = new LoadMemberInfofromFile();
@@ -43,5 +42,4 @@ public class LoadManager {
             return null;
         }
     }
-
 }
