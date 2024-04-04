@@ -61,7 +61,7 @@ public class DataManager {
     }
 
     public Map<String, ReservationCode> getRsvCodes(){
-        Map<String, ReservationCode> RsvCodeMap =  loadControl.resCode(path+"ReservationCode");
+        Map<String, ReservationCode> RsvCodeMap =  loadControl.resCode(path+"ReservationCodeData");
         if(RsvCodeMap != null)
             return RsvCodeMap;
         else {
