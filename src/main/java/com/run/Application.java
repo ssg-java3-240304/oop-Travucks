@@ -3,6 +3,7 @@ package com.run;
 import com.controller.DataManager;
 import com.dto.Member;
 import com.run.controller.Login;
+import com.run.controller.RoomSearch;
 import com.run.controller.ShowReservation;
 
 import java.util.InputMismatchException;
@@ -34,6 +35,9 @@ public class Application {
                     case 1 :    //객실 정보 조회
                         break;
                     case 2 :    //객실예약
+                        DataManager dataManager = new DataManager(); // 데이터 매니저 생성
+                        RoomSearch roomSearch = new RoomSearch(logmem,manager);
+                        roomSearch.makeReservation();
                         break;
                     case 3 :    //예약한 객실 조회
                         showReservation.printResRoomByCode();
