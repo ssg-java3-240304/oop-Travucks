@@ -9,7 +9,7 @@ import java.util.List;
 public class SaveRoomInfotoFile {
     private File target = new File("src/main/java/com/repository/RoomData");
 
-    public void saveRoom(Room room) throws IOException {
+    public boolean saveRoom(Room room){
         boolean append = target.exists() && target.length() > 0;
         try (ObjectOutputStream oos = append ? new ObjectOutputStream(new FileOutputStream(target, true)) {
             protected void writeStreamHeader() throws IOException {
@@ -19,6 +19,9 @@ public class SaveRoomInfotoFile {
         }
                 : new ObjectOutputStream(new FileOutputStream(target))) {
             oos.writeObject(room);
+            return true;
+        } catch (IOException e){
+            return false;
         }
     }
 }

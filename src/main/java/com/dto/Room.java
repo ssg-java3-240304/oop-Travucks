@@ -36,6 +36,6 @@ public class Room implements Serializable {
     public String toString() {
         return "객실 : " +
                 " 객실 번호 = " + roomID +
-                ", 객실 이름 ='" + name + '\'';
+                ", 객실명 ='" + name + '\'';
     }
 }
