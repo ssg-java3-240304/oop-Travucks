@@ -65,5 +65,6 @@ public class ReservationCode implements Serializable {
                 ", reservationDate=" + reservationDate +
                 '}';
     }
+    
 }
 
