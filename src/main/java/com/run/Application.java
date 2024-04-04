@@ -12,14 +12,17 @@ public class Application {
 
     public static void main(String[] args) {
         Application app = new Application();
-        DataManager manager = new DataManager();
+        DataManager manager = new DataManager();    //데이터 입출력 관리자 객체 생성
         sc = new Scanner(System.in);
         int choose=0;
        // DataManager manager = new DataManager();
         //로그인 모듈 작성 필요
         Login login=new Login(manager);
-        Member logmem = login.checkmember();
-        System.out.println(logmem.getName());
+        Member logedMember = login.checkmember();    //로그인 멤버
+        System.out.println(logedMember.getName()+"님 환영합니다");
+
+
+
         //메뉴 호출
         do{
             try{

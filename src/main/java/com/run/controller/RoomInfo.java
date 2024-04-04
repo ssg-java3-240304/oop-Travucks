@@ -14,7 +14,7 @@ public class RoomInfo {
 
     public void searchRoom() {
         // DataManager를 통해 객실 정보를 가져옴
-        List<Room> rooms = dataManager.getRoomInfo();
+        List<Room> rooms = dataManager.getRoomInfos();
         if (rooms.isEmpty()) {
             System.out.println("잔여 객실 정보가 없습니다.");
         } else {
