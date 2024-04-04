@@ -17,9 +17,9 @@ public class Application {
         int choose=0;
        // DataManager manager = new DataManager();
         //로그인 모듈 작성 필요
-       // Login login=new Login(manager);
-        //Member logmem = login.checkmember();
-        //System.out.println(logmem.getName());
+        Login login=new Login(manager);
+        Member logmem = login.checkmember();
+        System.out.println(logmem.getName());
         //메뉴 호출
         do{
             try{
