@@ -24,7 +24,14 @@ public class ShowReservation {
 
         System.out.println("예약된 정보를 확인합니다.");
         System.out.println();
+        for (ReservationCode room : reservedRooms.values()) {
 
+
+                System.out.println(
+                                "예약 코드 = " + room.hashCode());
+                found = true;
+
+        }
         System.out.println("예약 코드를 입력해주세요.");
         int rcode = sc.nextInt();
 
