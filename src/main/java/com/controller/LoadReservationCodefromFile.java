@@ -57,21 +57,21 @@ public class LoadReservationCodefromFile {
 //}
 
 
-    public static void main(String[] args) {
-        Map<String, ReservationCode> reservationCodeMap = null;
-        try {
-            reservationCodeMap = loadFromFile("src\\main\\java\\com\\repository\\ReservationCodeData");
-
-            for (Map.Entry<String, ReservationCode> entry : reservationCodeMap.entrySet()) {
-                ReservationCode reservationCode = entry.getValue();
-                String userId = entry.getKey();
-                System.out.print("예약 정보: " + reservationCode); // 예약 정보 출력
-                System.out.println(" 해시코드: " + reservationCode.hashCode()); // 해시코드 출력
-            }
-        } catch (IOException e) {
-            System.out.println("파일 불러오기 중 오류가 발생했습니다: " + e.getMessage());
-        }
-    }
+//    public static void main(String[] args) {
+//        Map<String, ReservationCode> reservationCodeMap = null;
+//        try {
+//            reservationCodeMap = loadFromFile("src\\main\\java\\com\\repository\\ReservationCodeData");
+//
+//            for (Map.Entry<String, ReservationCode> entry : reservationCodeMap.entrySet()) {
+//                ReservationCode reservationCode = entry.getValue();
+//                String userId = entry.getKey();
+//                System.out.print("예약 정보: " + reservationCode); // 예약 정보 출력
+//                System.out.println(" 해시코드: " + reservationCode.hashCode()); // 해시코드 출력
+//            }
+//        } catch (IOException e) {
+//            System.out.println("파일 불러오기 중 오류가 발생했습니다: " + e.getMessage());
+//        }
+//    }
 
     public static Map<String, ReservationCode> loadFromFile(String fileName) throws IOException {
         Map<String, ReservationCode> reservationCodeMap = new HashMap<>();

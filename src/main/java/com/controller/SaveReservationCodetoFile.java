@@ -12,15 +12,15 @@ import java.util.Map;
 
 // Reservationcode의 객체를  ReservationCodeData 파일에 객체저장
 public class SaveReservationCodetoFile {
-    public static void main(String[] args) {
-        String fileName = "src\\main\\java\\com\\repository\\ReservationCodeData";
-        List<ReservationCode> reservationCodes = new ArrayList<>();
-
-        reservationCodes.add(new ReservationCode("이용준", "201호", LocalDate.of(2024, 4, 2)));
-        reservationCodes.add(new ReservationCode("뽀로로", "205호", LocalDate.of(2024, 5, 3)));
-
-        saveToFile(reservationCodes, fileName);
-    }
+//    public static void main(String[] args) {
+//        String fileName = "src\\main\\java\\com\\repository\\ReservationCodeData";
+//        List<ReservationCode> reservationCodes = new ArrayList<>();
+//
+//        reservationCodes.add(new ReservationCode("이용준", "201호", LocalDate.of(2024, 4, 2)));
+//        reservationCodes.add(new ReservationCode("뽀로로", "205호", LocalDate.of(2024, 5, 3)));
+//
+//        saveToFile(reservationCodes, fileName);
+//    }
 
 //    public static boolean saveToFile(List<ReservationCode> reservationCodes ,String fileName) {
 //        try (FileOutputStream fos = new FileOutputStream(fileName))
