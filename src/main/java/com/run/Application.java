@@ -36,7 +36,7 @@ public class Application {
                         break;
                     case 2 :    //객실예약
                         DataManager dataManager = new DataManager(); // 데이터 매니저 생성
-                        RoomSearch roomSearch = new RoomSearch(logmem,manager);
+                        RoomSearch roomSearch = new RoomSearch(logedMember,manager);
                         roomSearch.makeReservation();
                         break;
                     case 3 :    //예약한 객실 조회

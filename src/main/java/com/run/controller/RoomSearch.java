@@ -37,7 +37,7 @@ public class RoomSearch {
         String startDateString = sc.nextLine();
         // "-" 제거
         startDateString = startDateString.replace("-", "");
-        LocalDateTime startDate = LocalDateTime.parse(startDateString, DateTimeFormatter.ofPattern("yyyyMMdd"));
+        LocalDate startDate = LocalDate.parse(startDateString, DateTimeFormatter.ofPattern("yyyyMMdd"));
 
         // 머무를 일 수 입력 받기
         System.out.print("머무를 일 수를 입력하세요: ");
@@ -114,5 +114,6 @@ public class RoomSearch {
         reservationCode.setReservationDate(LocalDate.from(startDateString));
         return reservationCode;
     }
+
 }
 
