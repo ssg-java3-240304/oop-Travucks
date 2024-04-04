@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class RoomSearch {
     private Member member;
     private Room selectedRoom;
-    private LocalDateTime startDateString;
+    private LocalDate startDate;
     private ReservationCode reservationCode;
 
     private final DataManager dataManager;
@@ -37,7 +37,7 @@ public class RoomSearch {
         String startDateString = sc.nextLine();
         // "-" 제거
         startDateString = startDateString.replace("-", "");
-        LocalDate startDate = LocalDate.parse(startDateString, DateTimeFormatter.ofPattern("yyyyMMdd"));
+        startDate = LocalDate.parse(startDateString, DateTimeFormatter.ofPattern("yyyyMMdd"));
 
         // 머무를 일 수 입력 받기
         System.out.print("머무를 일 수를 입력하세요: ");
@@ -60,7 +60,7 @@ public class RoomSearch {
 
         // 선택한 객실 예약하기
         if (selectedRoomIndex >= 0 && selectedRoomIndex < availableRooms.size()) {
-            Room selectedRoom = availableRooms.get(selectedRoomIndex);
+            selectedRoom = availableRooms.get(selectedRoomIndex);
             System.out.println("선택한 객실 정보: " + selectedRoom);
             System.out.println("예약을 진행합니다.");
             reservationCode = Creatrsv();
@@ -111,7 +111,7 @@ public class RoomSearch {
         ReservationCode reservationCode = new ReservationCode();
         reservationCode.setUserId(member.getUserId());
         reservationCode.setRoomId(String.valueOf(selectedRoom.getRoomID()));
-        reservationCode.setReservationDate(LocalDate.from(startDateString));
+        reservationCode.setReservationDate(LocalDate.from(startDate));
         return reservationCode;
     }
 
