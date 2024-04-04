@@ -11,6 +11,17 @@ public class Member {
     //phone:String
     private String phone;
 
+    @Override
+    public String toString() {
+        return "Member{" +
+                "userId='" + userId + '\'' +
+                ", userCode='" + userCode + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
+
     public Member() {
     }
 
