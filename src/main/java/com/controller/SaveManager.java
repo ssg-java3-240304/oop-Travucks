@@ -22,7 +22,7 @@ public class SaveManager {
         return reservedRoomSaver.getRRoomMap(rRoomMap);
     }
 
-    public boolean saveReservationCodes(List<ReservationCode> reservationCodes, String fileName) {
+    public boolean saveReservationCodes(Map<String, ReservationCode> reservationCodes, String fileName) {
         return reservationSaver.saveToFile(reservationCodes, fileName);
     }
 
