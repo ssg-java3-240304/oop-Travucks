@@ -73,7 +73,7 @@ public class LoadReservationCodefromFile {
 //        }
 //    }
 
-    public static Map<String, ReservationCode> loadFromFile(String fileName) throws IOException {
+    public static Map<String, ReservationCode> loadFromFile(String fileName){
         Map<String, ReservationCode> reservationCodeMap = new HashMap<>();
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)))) {
@@ -98,6 +98,8 @@ public class LoadReservationCodefromFile {
                 }
             }
             System.out.println("예약 정보가 파일에서 불러와졌습니다.");
+        }catch(IOException e){
+            System.out.println("불러오기에 실패했습니다");
         }
 
         return reservationCodeMap;
