@@ -19,16 +19,12 @@ public class RoomManager {
                 choose = sc.nextInt();
                 switch (choose){
                     case 1 :
-                        dataManager.saveRsvRoom();
                         break;
                     case 2 :
-                        dataManager.getRsvRoom();
                         break;
                     case 3 :
-                        dataManager.saveRoom();
                         break;
                     case 4 :
-                        dataManager.getRoomInfo();
                         break;
                     case 5 :
                         break;
