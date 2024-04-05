@@ -64,11 +64,16 @@ public class RoomSearch {
             System.out.println("선택한 객실 정보: " + selectedRoom);
             System.out.println("예약을 진행합니다.");
             reservationCode = Creatrsv();
+            Map<String, ReservationCode> rsvCodes = dataManager.getRsvCodes();
+            rsvCodes.put(reservationCode.getUserId(), reservationCode);
+            dataManager.saveRsvCode(rsvCodes);
             // 예약 정보 저장
-            ReservedRoom reservedRoom = new ReservedRoom(selectedRoom.getRoomID(), startDate, member.getUserId(), reservationCode.hashCode(), stayDays);
+            String userId = member.getUserId(); // 예약한 사용자 ID, 여기서는 임의의 값으로 설정
+            ReservedRoom reservedRoom = new ReservedRoom(selectedRoom.getRoomID(), startDate, userId, reservationCode.hashCode(), stayDays);
             Map<Integer, ReservedRoom> rsvRooms = dataManager.getRsvRooms();
             rsvRooms.put(reservedRoom.getRoomId(),reservedRoom);
             dataManager.saveRsvRoom(rsvRooms);
+
 
             // 예약 정보 출력
             System.out.println("예약이 완료되었습니다.");
