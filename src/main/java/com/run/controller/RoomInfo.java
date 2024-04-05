@@ -12,7 +12,7 @@ public class RoomInfo {
         this.dataManager = dataManager;
     }
 
-    public void searchRoom() {
+    public void roominfo() {
         // DataManager를 통해 객실 정보를 가져옴
         List<Room> rooms = dataManager.getRoomInfos();
         if (rooms.isEmpty()) {
