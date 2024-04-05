@@ -17,30 +17,35 @@ public class ShowReservation {
         this.dataManager = dataManager;
     }
 
-    public void printResRoomByCode() {
+    public void printResRoomByCode(String id) {
         Scanner sc = new Scanner(System.in);
-        Map<String, ReservationCode> reservedRooms = dataManager.getRsvCodes();
+        Map<Integer, ReservedRoom> reservedRooms = dataManager.getRsvRooms();
         boolean found = false;
 
         System.out.println("예약된 정보를 확인합니다.");
         System.out.println();
-        for (ReservationCode room : reservedRooms.values()) {
-
-
+        for (ReservedRoom room : reservedRooms.values()) {
+            if(room.getUserId()==id){
                 System.out.println(
-                                "예약 코드 = " + room.hashCode());
+                        "예약 코드 = " + room.hashCode());
                 found = true;
+            }
+            System.out.println(
+                    "예약 코드 = " + room.hashCode());
 
         }
+        if(found == false)
+            System.out.println("예약 정보가 없습니다.");
+        found = false;
         System.out.println("예약 코드를 입력해주세요.");
         int rcode = sc.nextInt();
 
-        for (ReservationCode room : reservedRooms.values()) {
+        for (ReservedRoom room : reservedRooms.values()) {
             if (room.hashCode() == rcode) {
 
                 System.out.println(
                         "일치하는 방 정보: 객실 번호 = " + room.getRoomId() +
-                        ", 날짜 = " + room.getReservationDate() +
+                        ", 날짜 = " + room.getDatetime() +
                         ", 아이디 = " + room.getUserId() +
                         ", 예약 코드 = " + room.hashCode());
                 found = true;

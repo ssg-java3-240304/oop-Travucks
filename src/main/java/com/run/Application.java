@@ -42,7 +42,7 @@ public class Application {
                         roomSearch.makeReservation();
                         break;
                     case 3 :    //예약한 객실 조회
-                        showReservation.printResRoomByCode();
+                        showReservation.printResRoomByCode(logedMember.getUserId());
                         break;
                     case 4 :    //예약 취소
                         break;
