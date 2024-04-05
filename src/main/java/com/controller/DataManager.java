@@ -6,6 +6,7 @@ import com.dto.ReservedRoom;
 import com.dto.Room;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -42,7 +43,7 @@ public class DataManager {
 
     public boolean saveRsvCode(Map<String, ReservationCode> rsvCodeMap){
         if(rsvCodeMap != null) {
-            saveControl.saveReservationCodes(rsvCodeMap, path + "ReservationCode");
+            saveControl.saveReservationCodes(rsvCodeMap, path + "ReservationCodeData");
             return true;
         }else{
             System.out.println("예약코드 저장 실패, 예약 코드를 찾을 수 없습니다 ");
@@ -64,9 +65,8 @@ public class DataManager {
         Map<String, ReservationCode> RsvCodeMap =  loadControl.resCode(path+"ReservationCodeData");
         if(RsvCodeMap != null)
             return RsvCodeMap;
-        else {
-            System.out.println("예약코드 불러오기에 실패 했습니다");
-            return null;
+        else {  //저장된 데이터가 없으면 맵을 생성해서 반환
+            return new HashMap<String, ReservationCode>();
         }
     }
 
@@ -74,9 +74,8 @@ public class DataManager {
         Map<Integer, ReservedRoom> RsvRoomMap = loadControl.resRoomInfo();
         if(RsvRoomMap != null)
             return RsvRoomMap;
-        else{
-            System.out.println("객실 예약정보 불러오기에 실패했습니다");
-            return null;
+        else{   //저장된 데이터가 없으면 맵을 생성해서 반환
+            return new HashMap<Integer, ReservedRoom>();
         }
     }
 
