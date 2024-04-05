@@ -5,6 +5,7 @@ import com.controller.SaveRoomInfotoFile;
 import com.dto.Member;
 import com.dto.Room;
 import com.run.controller.Login;
+import com.run.controller.RoomInfo;
 import com.run.controller.RoomSearch;
 import com.run.controller.ShowReservation;
 
@@ -35,6 +36,8 @@ public class Application {
                 choose = sc.nextInt();
                 switch (choose){
                     case 1 :    //객실 정보 조회
+                        RoomInfo roomInfo = new RoomInfo(manager);
+                        roomInfo.roominfo();
                         break;
                     case 2 :    //객실예약
                         DataManager dataManager = new DataManager(); // 데이터 매니저 생성
