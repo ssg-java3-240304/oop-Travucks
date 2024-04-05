@@ -92,7 +92,7 @@ public class RoomSearch {
         for (Room room : allRooms) {
             boolean isAvailable = true;
             for (LocalDate date = startDate; date.isBefore(endDate); date = date.plusDays(1)) {
-                String key = room.getRoomID() + "_" + date.toString();
+                String key = room.getRoomID() + "_" + date;
                 if (reservedRooms.containsKey(key)) {
                     isAvailable = false;
                     break;
