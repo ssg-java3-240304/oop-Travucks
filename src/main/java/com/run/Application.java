@@ -4,10 +4,7 @@ import com.controller.DataManager;
 import com.controller.SaveRoomInfotoFile;
 import com.dto.Member;
 import com.dto.Room;
-import com.run.controller.Login;
-import com.run.controller.RoomInfo;
-import com.run.controller.RoomSearch;
-import com.run.controller.ShowReservation;
+import com.run.controller.*;
 
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -21,6 +18,8 @@ public class Application {
         Application app = new Application();
         DataManager manager = new DataManager();
         ShowReservation showReservation = new ShowReservation(manager);
+        CancelReservation cancelReservation = new CancelReservation(manager);
+
         sc = new Scanner(System.in);
         int choose=0;
        // DataManager manager = new DataManager();
@@ -48,6 +47,7 @@ public class Application {
                         showReservation.printResRoomByCode(logedMember.getUserId());
                         break;
                     case 4 :    //예약 취소
+                        cancelReservation.cancel(logedMember);
                         break;
                     case 5 :    //종료
                         return;

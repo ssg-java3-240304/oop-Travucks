@@ -25,29 +25,28 @@ public class ShowReservation {
         System.out.println("예약된 정보를 확인합니다.");
         System.out.println();
         for (ReservedRoom room : reservedRooms.values()) {
-            if(room.getUserId()==id){
+            if(room.getUserId().equals(id)){
                 System.out.println(
-                        "예약 코드 = " + room.hashCode());
+                        "예약 코드 = " + room.getReservationCode());
                 found = true;
+                break;
             }
-            System.out.println(
-                    "예약 코드 = " + room.hashCode());
-
         }
         if(found == false)
             System.out.println("예약 정보가 없습니다.");
+
         found = false;
         System.out.println("예약 코드를 입력해주세요.");
         int rcode = sc.nextInt();
 
         for (ReservedRoom room : reservedRooms.values()) {
-            if (room.hashCode() == rcode) {
+            if (room.getReservationCode() == rcode) {
 
                 System.out.println(
                         "일치하는 방 정보: 객실 번호 = " + room.getRoomId() +
                         ", 날짜 = " + room.getDatetime() +
                         ", 아이디 = " + room.getUserId() +
-                        ", 예약 코드 = " + room.hashCode());
+                        ", 예약 코드 = " + room.getReservationCode());
                 found = true;
             }
         }
